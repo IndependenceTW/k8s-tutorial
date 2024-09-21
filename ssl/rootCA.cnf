@@ -1,0 +1,20 @@
+[req]
+default_bits = 2048
+prompt = no
+default_md = sha256
+distinguished_name = dn
+req_extensions = v3_req
+
+[ dn ]
+C = TW # Country
+ST = Taiwan # State or City
+L = Taipei # Location
+O = AUO K8S # Organization
+OU = AUO K8S CA # Organization Unit
+emailAddress=fake@email.com
+CN = AUO K8S CA # FQDN or Name
+
+[ v3_req ]
+basicConstraints = critical,CA:TRUE,pathlen:1 # 這行標記了這個 crt 為 CA
+keyUsage = critical, digitalSignature, cRLSign, keyCertSign
+extendedKeyUsage = serverAuth, clientAuth
