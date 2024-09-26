@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod                 # 這邊可以告訴 K8s 我要部屬一個 Pod
+metadata:
+  name: example-webapp    # 這邊則是 Pod 的名稱
+  labels:                 # 用來標記 Pod，會在隨後的 Service 派上用場
+    app: example-webapp
+spec:
+  containers:             # Pod 內的 Container 資訊
+  - name: example-webapp
+    image: independencetw/example-webapp:latest   
+    ports:
+      - containerPort: 80
